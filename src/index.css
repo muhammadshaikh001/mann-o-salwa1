@@ -1,5 +1,4 @@
 @import "tailwindcss";
-/* NOTE: Google Fonts are loaded in index.html via <link> tags — DO NOT import here again */
 
 @layer base {
   :root {

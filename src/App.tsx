@@ -2,9 +2,8 @@ import { useState, lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TrustBar from './components/TrustBar';
-import AnnouncementBar from './components/AnnouncementBar';
-import SEOSchema from './components/SEOSchema';
 import ReserveModal from './components/ReserveModal';
+import SEOSchema from './components/SEOSchema';
 
 // ── Lazy load below-fold components ──
 // These will only be downloaded when the user scrolls near them
@@ -42,7 +41,6 @@ export default function App() {
     <div className="min-h-screen" style={{ backgroundColor: '#060A13' }}>
       <SEOSchema />
       {/* Above-fold — loaded eagerly */}
-      <AnnouncementBar />
       <Navbar onReserve={() => setShowModal(true)} />
       <main>
         <Hero onReserve={() => setShowModal(true)} />
