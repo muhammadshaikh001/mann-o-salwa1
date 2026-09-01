@@ -30,14 +30,21 @@ export default function Hero({ onReserve }: Props) {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="https://images.pexels.com/photos/36879455/pexels-photo-36879455.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1080&w=1920"
+          src="/images/hero-bg.jpg"
           alt="Mann O Salwa restaurant ambiance"
           className="w-full h-full object-cover object-center"
           loading="eager"
         />
+        {/* Main dark overlay */}
         <div className="hero-overlay absolute inset-0" />
+        {/* Warm golden light from bottom — simulates ambient restaurant glow */}
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 80% 50% at 50% 110%, rgba(201,140,30,0.28) 0%, transparent 70%)' }} />
+        {/* Top dark vignette for text readability */}
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(6,10,19,0.55) 0%, transparent 40%, transparent 60%, rgba(6,10,19,0.65) 100%)' }} />
         {/* Side vignettes */}
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(90deg, rgba(6,10,19,0.55) 0%, transparent 30%, transparent 70%, rgba(6,10,19,0.4) 100%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(90deg, rgba(6,10,19,0.5) 0%, transparent 25%, transparent 75%, rgba(6,10,19,0.4) 100%)' }} />
+        {/* Subtle warm light rays from top pendants */}
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(201,140,30,0.12) 0%, transparent 60%)' }} />
       </div>
 
       {/* Decorative corner ornaments — top left */}
