@@ -2,33 +2,28 @@ import { useEffect, useRef } from 'react';
 
 const galleryImages = [
   {
-    src: 'https://images.pexels.com/photos/29173119/pexels-photo-29173119.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=600',
-    alt: 'Grilled tandoori chicken with garnishes',
+    src: '/images/gallery/gallery-1.jpg',
+    alt: 'Chicken Dominoes — crispy cheesy tower with signature sauce',
     span: 'col-span-1 row-span-2',
   },
   {
-    src: 'https://images.pexels.com/photos/36879455/pexels-photo-36879455.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=400&w=600',
-    alt: 'Chicken skewers on grill with flames',
+    src: '/images/gallery/gallery-3.jpg',
+    alt: 'Mann O Salwa outdoor garden ambiance at night',
     span: 'col-span-1',
   },
   {
-    src: 'https://images.pexels.com/photos/36701471/pexels-photo-36701471.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=400&w=600',
-    alt: 'Grilled Indian tikka platter with chutney',
+    src: '/images/gallery/gallery-4.jpg',
+    alt: 'Dehati Mutton in Desi Ghee — slow cooked perfection',
     span: 'col-span-1',
   },
   {
-    src: 'https://images.pexels.com/photos/29173114/pexels-photo-29173114.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=600',
-    alt: 'Chicken tikka platter with chutney',
+    src: '/images/gallery/gallery-2.jpg',
+    alt: 'Paneer Tikka Dry — grilled to perfection on sizzler',
     span: 'col-span-1',
   },
   {
-    src: 'https://images.pexels.com/photos/6876589/pexels-photo-6876589.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=600',
-    alt: 'Restaurant elegant dining interior',
-    span: 'col-span-1',
-  },
-  {
-    src: 'https://images.pexels.com/photos/18698236/pexels-photo-18698236.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=600',
-    alt: 'Mandi platter with rice and chicken',
+    src: '/images/gallery/gallery-5.jpg',
+    alt: 'Mann O Salwa grand food spread with restaurant view',
     span: 'col-span-2',
   },
 ];
