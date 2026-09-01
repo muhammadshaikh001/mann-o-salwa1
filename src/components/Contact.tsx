@@ -1,27 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
+import { useReveal } from '../utils/useReveal';
 
 export default function Contact() {
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useReveal() as React.RefObject<HTMLDivElement>;
   const [form, setForm] = useState({ name: '', phone: '', date: '', guests: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach((el, i) => {
-              setTimeout(() => el.classList.add('visible'), i * 100);
-            });
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });

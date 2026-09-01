@@ -1,28 +1,11 @@
-import { useEffect, useRef } from 'react';
+import { useReveal } from '../utils/useReveal';
 
 interface Props {
   onReserve?: () => void;
 }
 
 export default function FinalCTA({ onReserve }: Props) {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.querySelectorAll('.reveal').forEach((el, i) => {
-              setTimeout(() => el.classList.add('visible'), i * 150);
-            });
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
+  const sectionRef = useReveal() as React.RefObject<HTMLDivElement>;
 
   return (
     <section ref={sectionRef} className="relative py-24 overflow-hidden">

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useReveal } from '../utils/useReveal';
 
 const reviews = [
   {
@@ -76,25 +77,8 @@ function StarRating({ count }: { count: number }) {
 
 export default function Reviews() {
   const [current, setCurrent] = useState(0);
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useReveal() as React.RefObject<HTMLDivElement>;
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.querySelectorAll('.reveal').forEach((el, i) => {
-              setTimeout(() => el.classList.add('visible'), i * 100);
-            });
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
 
   useEffect(() => {
     intervalRef.current = setInterval(() => {

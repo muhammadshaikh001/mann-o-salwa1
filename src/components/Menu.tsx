@@ -452,19 +452,31 @@ export default function Menu() {
   }, {} as Record<string, typeof menuItems>);
 
   useEffect(() => {
+    const triggerReveals = (target: Element) => {
+      target.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach((el, i) => {
+        setTimeout(() => el.classList.add('visible'), i * 30);
+      });
+    };
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.querySelectorAll('.reveal').forEach((el, i) => {
-              setTimeout(() => el.classList.add('visible'), i * 50);
-            });
+            triggerReveals(entry.target);
           }
         });
       },
-      { threshold: 0.05 }
+      { threshold: 0.01, rootMargin: '200px 0px' }
     );
-    if (sectionRef.current) observer.observe(sectionRef.current);
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+      // Agar section already viewport mein hai (React.lazy ke baad) — immediately visible karo
+      const rect = sectionRef.current.getBoundingClientRect();
+      if (rect.top < window.innerHeight) {
+        setTimeout(() => triggerReveals(sectionRef.current!), 100);
+      }
+    }
     return () => observer.disconnect();
   }, []);
 

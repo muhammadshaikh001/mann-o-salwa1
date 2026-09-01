@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
+import { useReveal } from '../utils/useReveal';
 
 // ── ALL 10 permanent gallery images ──
 // Previous 5 (menu) + New 5 uploaded — images will NEVER change
@@ -113,26 +114,9 @@ const tagColors: Record<string, string> = {
 };
 
 export default function Gallery() {
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useReveal() as React.RefObject<HTMLDivElement>;
   const [lightbox, setLightbox] = useState<{ src: string; title: string; subtitle?: string } | null>(null);
   const [filter, setFilter] = useState<'all' | 'food' | 'ambiance'>('all');
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.querySelectorAll('.reveal').forEach((el, i) => {
-              setTimeout(() => el.classList.add('visible'), i * 80);
-            });
-          }
-        });
-      },
-      { threshold: 0.05 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
 
   // Close lightbox on Escape key
   useEffect(() => {
