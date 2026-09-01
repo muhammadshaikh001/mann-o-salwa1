@@ -631,12 +631,12 @@ export default function Menu() {
             Explore All 20+ Categories
           </h3>
 
-          <div className="flex flex-wrap justify-center gap-2 max-w-5xl mx-auto mb-10">
+          <div className="flex overflow-x-auto gap-2 pb-2 sm:flex-wrap sm:justify-center max-w-5xl mx-auto mb-10 scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 text-[10px] sm:text-xs font-body font-bold tracking-[1.5px] uppercase rounded-md border transition-all duration-300 flex items-center gap-1.5
+                className={`shrink-0 px-4 py-2 text-[10px] sm:text-xs font-body font-bold tracking-[1.5px] uppercase rounded-md border transition-all duration-300 flex items-center gap-1.5
                   ${
                     activeCategory === cat
                       ? 'bg-[rgba(201,168,76,0.16)] border-[#C9A84C] text-[#F0D080] shadow-[0_0_20px_rgba(201,168,76,0.2)]'
@@ -695,8 +695,8 @@ export default function Menu() {
                   {/* Collapsible Items Grid */}
                   <div
                     style={{
-                      maxHeight: isOpen ? `${Math.ceil(items.length / 2) * 90 + 60}px` : '0px',
-                      transition: 'max-height 0.4s ease-in-out',
+                      maxHeight: isOpen ? `${items.length * 80 + 60}px` : '0px',
+                      transition: 'max-height 0.5s ease-in-out',
                       overflow: 'hidden',
                     }}
                   >
