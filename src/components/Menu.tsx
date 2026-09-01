@@ -115,6 +115,8 @@ export const signatureDishes: SignatureDish[] = [
 const categories = [
   'All',
   'Royal Signatures',
+  'Mann O Salwa SP.',
+  'Tandoor Ka Khajana',
   'King Off Raan',
   'Tawa-Ka-Jalwa',
   'Chicken Moghlai',
@@ -138,6 +140,48 @@ const categories = [
 ];
 
 const menuItems = [
+  // ─── MANN O SALWA SP. ───
+  { category: 'Mann O Salwa SP.', name: 'Sp. Mann O Salwa Platter', price: '₹1599', isSignature: true, image: '/images/menu/royal-raan-thal.jpg' },
+  { category: 'Mann O Salwa SP.', name: 'Chicken Family Platter', price: '₹1400' },
+  { category: 'Mann O Salwa SP.', name: 'Tikka Platter', price: '₹1399' },
+  { category: 'Mann O Salwa SP.', name: 'Mini Platter', price: '₹599' },
+  { category: 'Mann O Salwa SP.', name: 'Leg. Dhamaka', price: '₹999' },
+  { category: 'Mann O Salwa SP.', name: 'Hangama Platter', price: '₹2199' },
+  { category: 'Mann O Salwa SP.', name: 'Coconut Tikka', price: '₹449' },
+  { category: 'Mann O Salwa SP.', name: 'Pineapple Tikka', price: '₹549' },
+  { category: 'Mann O Salwa SP.', name: 'Tango Tikka', price: '₹450' },
+  { category: 'Mann O Salwa SP.', name: 'Chicken Cheeza', price: '₹449' },
+  { category: 'Mann O Salwa SP.', name: 'Chicken Dominose', price: '₹250' },
+  { category: 'Mann O Salwa SP.', name: 'Sizzling Pathani Tikka (8 pcs)', price: '₹599' },
+  { category: 'Mann O Salwa SP.', name: 'Rosted Chicken (8 pcs)', price: '₹650' },
+
+  // ─── TANDOOR KA KHAJANA ───
+  { category: 'Tandoor Ka Khajana', name: 'Chicken Sizzling Tandoori', price: '₹649' },
+  { category: 'Tandoor Ka Khajana', name: 'Chicken Shangrila', price: '₹330 / ₹530' },
+  { category: 'Tandoor Ka Khajana', name: 'Chicken Kalimirch Tandoori', price: '₹499' },
+  { category: 'Tandoor Ka Khajana', name: 'Chicken Cream Tandoori', price: '₹550' },
+  { category: 'Tandoor Ka Khajana', name: 'Chicken Pathani', price: '₹270 / ₹430' },
+  { category: 'Tandoor Ka Khajana', name: 'Chicken Tandoori', price: '₹240 / ₹400' },
+  { category: 'Tandoor Ka Khajana', name: 'Chicken Golden Leg', price: '₹130' },
+  { category: 'Tandoor Ka Khajana', name: 'Chicken Tandoori Leg', price: '₹120' },
+  { category: 'Tandoor Ka Khajana', name: 'Chicken Sp. Cheese Leg', price: '₹199' },
+  { category: 'Tandoor Ka Khajana', name: 'Chicken Maleshian Leg', price: '₹170' },
+  { category: 'Tandoor Ka Khajana', name: 'Chicken Tabbasum Leg', price: '₹199' },
+  { category: 'Tandoor Ka Khajana', name: 'Chicken Mastani Leg', price: '₹219' },
+  { category: 'Tandoor Ka Khajana', name: 'Chicken Silver Leg', price: '₹199' },
+  { category: 'Tandoor Ka Khajana', name: 'Chicken Shangrila Leg', price: '₹199' },
+  { category: 'Tandoor Ka Khajana', name: 'Chicken Royal Tandgi (4 Pcs)', price: '₹300' },
+  { category: 'Tandoor Ka Khajana', name: 'Chicken Garlic Tikka', price: '₹349' },
+  { category: 'Tandoor Ka Khajana', name: 'Chicken Tikka', price: '₹200' },
+  { category: 'Tandoor Ka Khajana', name: 'Chicken Malai Tikka', price: '₹349' },
+  { category: 'Tandoor Ka Khajana', name: 'Chicken Golden Tikka', price: '₹249' },
+  { category: 'Tandoor Ka Khajana', name: 'Chicken Badami Tikka', price: '₹349' },
+  { category: 'Tandoor Ka Khajana', name: 'Chicken Nizami Tikka', price: '₹299' },
+  { category: 'Tandoor Ka Khajana', name: 'Chicken Lemon Crush Tikka', price: '₹349' },
+  { category: 'Tandoor Ka Khajana', name: 'Chicken Nawabi Tikka', price: '₹349' },
+  { category: 'Tandoor Ka Khajana', name: 'Mann O Salwa Sp. Tikka', price: '₹440', isSignature: true, image: '/images/menu/chicken-afghani-tikka.jpg' },
+  { category: 'Tandoor Ka Khajana', name: 'Peri Peri Tikka', price: '₹399' },
+
   // ─── KING OFF RAAN ───
   { category: 'King Off Raan', name: 'Mann O Salwa Sp. Raan', price: '₹1699', isSignature: true, image: '/images/menu/royal-raan-thal.jpg' },
   { category: 'King Off Raan', name: 'Golden Tawa Fry Raan', price: '₹1599' },
@@ -400,6 +444,8 @@ const menuItems = [
 
 const categoryIcons: Record<string, string> = {
   'Royal Signatures': '⭐',
+  'Mann O Salwa SP.': '🏆',
+  'Tandoor Ka Khajana': '🔥',
   'King Off Raan': '👑',
   'Tawa-Ka-Jalwa': '🔥',
   'Chicken Moghlai': '🍗',
