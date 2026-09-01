@@ -1,4 +1,4 @@
-﻿import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 const highlights = [
   {
@@ -76,6 +76,7 @@ export default function About() {
                 alt="Mann O Salwa restaurant interior ambiance"
                 className="w-full h-full object-cover"
                 loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(6,10,19,0.7) 0%, transparent 50%)' }} />
             </div>
@@ -91,7 +92,7 @@ export default function About() {
             </div>
 
             {/* Floating Rating Badge */}
-            <div className="absolute -bottom-8 -right-6 md:-left-8 md:right-auto" style={{ background: 'linear-gradient(135deg, #0F1628, #131D34)', border: '1px solid rgba(201,168,76,0.25)', borderRadius: '4px', padding: '20px 24px', boxShadow: '0 20px 50px rgba(0,0,0,0.5)' }}>
+            <div className="absolute -bottom-8 right-0 sm:-left-8 sm:right-auto" style={{ background: 'linear-gradient(135deg, #0F1628, #131D34)', border: '1px solid rgba(201,168,76,0.25)', borderRadius: '4px', padding: '20px 24px', boxShadow: '0 20px 50px rgba(0,0,0,0.5)' }}>
               <div className="text-center">
                 <div className="font-heading text-4xl font-bold text-gradient">4.5</div>
                 <div className="flex justify-center gap-0.5 my-1.5">

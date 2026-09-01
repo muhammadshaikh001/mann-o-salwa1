@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Raleway:wght@300;400;500;600;700&display=swap');
+/* NOTE: Google Fonts are loaded in index.html via <link> tags — DO NOT import here again */
 
 @layer base {
   :root {
@@ -27,12 +27,19 @@
     color: var(--color-text);
     font-family: 'Raleway', sans-serif;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Prevent layout shift from scrollbar */
+    overflow-x: hidden;
   }
 
   * { box-sizing: border-box; }
 
+  /* Remove tap highlight on mobile */
+  * { -webkit-tap-highlight-color: transparent; }
+
   ::selection { background: rgba(201,168,76,0.25); color: #F0D080; }
 
+  /* Respect user's reduced motion preference */
   @media (prefers-reduced-motion: reduce) {
     *, ::before, ::after {
       animation-duration: 0.01ms !important;
@@ -40,6 +47,11 @@
       transition-duration: 0.01ms !important;
     }
     html { scroll-behavior: auto; }
+  }
+
+  /* Mobile: improve text rendering */
+  @media (max-width: 768px) {
+    html { font-size: 15px; }
   }
 }
 
@@ -125,9 +137,11 @@
     box-shadow: 0 20px 50px rgba(0,0,0,0.45), 0 0 0 1px rgba(201,168,76,0.1);
   }
 
+  /* ── Buttons — min 44px touch target for mobile ── */
   .btn-primary {
     position: relative; display: inline-block;
     padding: 14px 36px;
+    min-height: 44px;
     font-family: 'Raleway', sans-serif; font-weight: 700;
     font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
     text-decoration: none; color: #060A13;
@@ -135,16 +149,23 @@
     background-size: 200% auto;
     border: none; border-radius: 2px; cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+    /* Remove 300ms tap delay on mobile */
+    touch-action: manipulation;
   }
   .btn-primary:hover {
     background-position: right center;
     box-shadow: 0 10px 36px rgba(201,168,76,0.5), 0 0 0 1px rgba(240,208,128,0.3);
     transform: translateY(-2px);
   }
+  /* No hover transform on touch devices */
+  @media (hover: none) {
+    .btn-primary:hover { transform: none; }
+  }
 
   .btn-outline {
     position: relative; display: inline-block;
     padding: 13px 35px;
+    min-height: 44px;
     font-family: 'Raleway', sans-serif; font-weight: 700;
     font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
     text-decoration: none; color: #F0D080;
@@ -152,11 +173,15 @@
     border: 1px solid rgba(201,168,76,0.5);
     border-radius: 2px; cursor: pointer;
     transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+    touch-action: manipulation;
   }
   .btn-outline:hover {
     border-color: #C9A84C;
     box-shadow: 0 8px 28px rgba(201,168,76,0.2), inset 0 1px 0 rgba(240,208,128,0.1);
     transform: translateY(-2px);
+  }
+  @media (hover: none) {
+    .btn-outline:hover { transform: none; }
   }
 
   .hero-overlay {
@@ -188,12 +213,23 @@
   ::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.3); border-radius: 3px; }
   ::-webkit-scrollbar-thumb:hover { background: #C9A84C; }
 
+  /* Hide scrollbar on mobile — cleaner look */
+  @media (max-width: 768px) {
+    ::-webkit-scrollbar { display: none; }
+  }
+
   .floating-btn {
     position: fixed; z-index: 999; bottom: 28px;
     box-shadow: 0 6px 24px rgba(0,0,0,0.5); border-radius: 50px;
     transition: transform 0.25s cubic-bezier(0.4,0,0.2,1), box-shadow 0.25s ease;
+    touch-action: manipulation;
+    /* Ensure 44px min touch target */
+    min-height: 44px;
   }
   .floating-btn:hover { transform: scale(1.1) translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.65); }
+  @media (hover: none) {
+    .floating-btn:hover { transform: none; }
+  }
 
   .menu-img { transition: transform 0.6s cubic-bezier(0.4,0,0.2,1); }
   .menu-img:hover { transform: scale(1.07); }
@@ -208,6 +244,11 @@
     display: flex; align-items: center; justify-content: center;
   }
   .gallery-item:hover .overlay { opacity: 1; }
+
+  /* Gallery mobile tall image override */
+  @media (max-width: 640px) {
+    .gallery-tall { height: 360px !important; }
+  }
 
   .reveal {
     opacity: 0; transform: translateY(24px);
@@ -226,6 +267,13 @@
     transition: opacity 0.75s cubic-bezier(0.4,0,0.2,1), transform 0.75s cubic-bezier(0.4,0,0.2,1);
   }
   .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+  /* On mobile, reduce reveal distance for smoother feel */
+  @media (max-width: 640px) {
+    .reveal { transform: translateY(16px); }
+    .reveal-left { transform: translateX(-20px); }
+    .reveal-right { transform: translateX(20px); }
+  }
 
   @keyframes fadeInDown {
     from { opacity: 0; transform: translateY(-24px); }
@@ -300,8 +348,21 @@
     background: radial-gradient(circle, rgba(26,55,120,0.18) 0%, transparent 70%);
   }
 
+  /* Blobs hidden on mobile for performance */
+  @media (max-width: 640px) {
+    .blob-gold, .blob-navy { display: none; }
+  }
+
   .announcement-bar {
     background: linear-gradient(90deg, #0B1020, #111E38, #0B1020);
     border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+
+  /* ── Mobile safe area support (notch/home bar) ── */
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 0px);
   }
 }

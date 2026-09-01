@@ -205,7 +205,7 @@ export default function Gallery() {
             <div
               key={idx}
               className={`reveal gallery-item group relative overflow-hidden rounded-xl border border-white/[0.06] hover:border-[rgba(201,168,76,0.5)] transition-all duration-500 cursor-pointer break-inside-avoid ${
-                img.tall ? 'h-[520px]' : img.wide ? 'h-[300px]' : 'h-[280px] sm:h-[300px]'
+                img.tall ? 'h-[520px] gallery-tall' : img.wide ? 'h-[300px]' : 'h-[280px] sm:h-[300px]'
               }`}
               onClick={() => setLightbox({ src: img.src, title: img.title, subtitle: img.subtitle })}
             >
@@ -215,6 +215,7 @@ export default function Gallery() {
                 alt={img.alt}
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                 loading="lazy"
+                decoding="async"
               />
 
               {/* Gradient overlay (always visible at bottom) */}

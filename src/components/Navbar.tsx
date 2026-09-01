@@ -108,9 +108,10 @@ export default function Navbar({ onReserve }: Props) {
 
         {/* Mobile Hamburger */}
         <button
-          className="lg:hidden flex flex-col gap-1.5 p-2 group"
+          className="lg:hidden flex flex-col gap-1.5 p-3 group min-h-[44px] min-w-[44px] items-center justify-center"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
+          style={{ touchAction: 'manipulation' }}
         >
           <span className={`block w-6 h-0.5 bg-[#C9A84C] transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`} />
           <span className={`block w-6 h-0.5 bg-[#C9A84C] transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`} />
@@ -128,7 +129,8 @@ export default function Navbar({ onReserve }: Props) {
               key={link.href}
               href={link.href}
               onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-              className="text-xs font-body font-semibold tracking-[2px] uppercase text-stone-300 hover:text-[#F0D080] transition-colors py-2 border-b border-[#1E2E50]/60"
+              className="text-xs font-body font-semibold tracking-[2px] uppercase text-stone-300 hover:text-[#F0D080] transition-colors py-3 border-b border-[#1E2E50]/60 min-h-[44px] flex items-center"
+              style={{ touchAction: 'manipulation' }}
             >
               {link.label}
             </a>

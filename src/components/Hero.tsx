@@ -34,6 +34,8 @@ export default function Hero({ onReserve }: Props) {
           alt="Mann O Salwa restaurant ambiance"
           className="w-full h-full object-cover object-center"
           loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
         {/* Main dark overlay */}
         <div className="hero-overlay absolute inset-0" />
@@ -63,12 +65,18 @@ export default function Hero({ onReserve }: Props) {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
+      <div className="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto">
 
         {/* Logo */}
-        <div ref={logoRef} style={{ opacity: 0 }} className="mb-8 flex justify-center">
-          <div className="animate-float relative w-36 h-36 rounded-full overflow-hidden" style={{ border: '2px solid rgba(201,168,76,0.65)', boxShadow: '0 0 0 8px rgba(201,168,76,0.05), 0 0 50px rgba(201,168,76,0.22), 0 20px 60px rgba(0,0,0,0.5)' }}>
-            <img src="/images/mann-o-salwa-logo.png" alt="Mann O Salwa" className="w-full h-full object-cover" />
+        <div ref={logoRef} style={{ opacity: 0 }} className="mb-6 sm:mb-8 flex justify-center">
+          <div className="animate-float relative w-24 h-24 sm:w-36 sm:h-36 rounded-full overflow-hidden" style={{ border: '2px solid rgba(201,168,76,0.65)', boxShadow: '0 0 0 8px rgba(201,168,76,0.05), 0 0 50px rgba(201,168,76,0.22), 0 20px 60px rgba(0,0,0,0.5)' }}>
+            <img
+              src="/images/mann-o-salwa-logo.png"
+              alt="Mann O Salwa"
+              className="w-full h-full object-cover"
+              fetchPriority="high"
+              decoding="async"
+            />
           </div>
         </div>
 
